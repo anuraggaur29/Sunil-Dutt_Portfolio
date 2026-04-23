@@ -29,6 +29,21 @@ app.use('/api/plans', plansRouter);
 app.use('/api/auth', authRouter);
 app.use('/api/calculator', calculatorRouter);
 
+// Root route for Render/browser checks
+app.get('/', (req, res) => {
+  res.json({
+    message: 'Sunil Dutt LIC backend is running',
+    status: 'OK',
+    docs: {
+      health: '/api/health',
+      leads: '/api/leads',
+      plans: '/api/plans',
+      auth: '/api/auth',
+      calculator: '/api/calculator'
+    }
+  });
+});
+
 // Health check
 app.get('/api/health', (req, res) => {
   res.json({ status: 'OK', timestamp: new Date().toISOString() });

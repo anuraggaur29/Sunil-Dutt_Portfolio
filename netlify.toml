@@ -1,8 +1,8 @@
 # Netlify Configuration for Sunil Dutt - LIC Agent Website
 
 [build]
-command = "cd frontend && npm install && npm run build"
-publish = "frontend/dist"
+command = "npm ci && npm run build"
+publish = "dist"
 base = "frontend"
 
 [dev]
@@ -17,7 +17,7 @@ status = 200
 
 # Environment variables
 [context.production.environment]
-VITE_API_BASE_URL = "https://lic-agent-api.herokuapp.com/api"
+VITE_API_BASE_URL = "https://sunil-dutt-lic-backend.onrender.com/api"
 VITE_AGENT_NAME = "Sunil Dutt"
 VITE_AGENT_PHONE = "+91 9416662922"
 VITE_AGENT_EMAIL = "dutt2785@gmail.com"
@@ -27,7 +27,7 @@ VITE_APP_NAME = "Sunil Dutt - LIC Agent"
 VITE_APP_URL = "https://sunildutt-lic-agent.netlify.app"
 
 [context.deploy-preview.environment]
-VITE_API_BASE_URL = "https://lic-agent-api-staging.herokuapp.com/api"
+VITE_API_BASE_URL = "https://sunil-dutt-lic-backend.onrender.com/api"
 VITE_AGENT_NAME = "Sunil Dutt"
 VITE_AGENT_PHONE = "+91 9416662922"
 VITE_AGENT_EMAIL = "dutt2785@gmail.com"
