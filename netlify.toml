@@ -18,6 +18,7 @@ status = 200
 # Environment variables
 [context.production.environment]
 VITE_API_BASE_URL = "https://sunil-dutt-lic-backend.onrender.com/api"
+VITE_WEB3FORMS_ACCESS_KEY = "e7c6cb20-1de8-4f97-a3f8-6bbc280576e0"
 VITE_AGENT_NAME = "Sunil Dutt"
 VITE_AGENT_PHONE = "+91 9416662922"
 VITE_AGENT_EMAIL = "dutt2785@gmail.com"
@@ -28,6 +29,7 @@ VITE_APP_URL = "https://sunildutt-lic-agent.netlify.app"
 
 [context.deploy-preview.environment]
 VITE_API_BASE_URL = "https://sunil-dutt-lic-backend.onrender.com/api"
+VITE_WEB3FORMS_ACCESS_KEY = "e7c6cb20-1de8-4f97-a3f8-6bbc280576e0"
 VITE_AGENT_NAME = "Sunil Dutt"
 VITE_AGENT_PHONE = "+91 9416662922"
 VITE_AGENT_EMAIL = "dutt2785@gmail.com"

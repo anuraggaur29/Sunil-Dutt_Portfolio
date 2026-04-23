@@ -148,7 +148,6 @@
 </template>
 
 <script>
-import axios from 'axios'
 
 export default {
   data() {
@@ -163,6 +162,7 @@ export default {
       loading: false,
       message: '',
       messageType: 'success',
+      web3FormsAccessKey: import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || 'e7c6cb20-1de8-4f97-a3f8-6bbc280576e0',
       agentPhone: import.meta.env.VITE_AGENT_PHONE || '+91 9416662922',
       agentEmail: import.meta.env.VITE_AGENT_EMAIL || 'dutt2785@gmail.com',
       agentAddress: import.meta.env.VITE_AGENT_ADDRESS || 'Jind, Haryana, India 126102',
@@ -180,21 +180,30 @@ export default {
       this.message = ''
 
       try {
-        const apiUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000/api'
-        // Using leads endpoint for contact form
-        await axios.post(`${apiUrl}/leads`, {
-          name: this.form.name,
-          email: this.form.email,
-          phone: this.form.phone,
-          message: `[${this.form.subject}] ${this.form.message}`,
-          plan_interest: this.form.subject
-        })
+        const formData = new FormData()
+        formData.append('access_key', this.web3FormsAccessKey)
+        formData.append('name', this.form.name)
+        formData.append('email', this.form.email)
+        formData.append('phone', this.form.phone)
+        formData.append('subject', this.form.subject)
+        formData.append('message', this.form.message)
+        formData.append('from_name', import.meta.env.VITE_APP_NAME || 'Sunil Dutt LIC Agent')
 
-        this.message = '✓ Message sent successfully! We will contact you soon.'
+        const response = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          body: formData
+        })
+        const data = await response.json()
+
+        if (!data.success) {
+          throw new Error(data.message || 'Form submission failed')
+        }
+
+        this.message = 'Message sent successfully! We will contact you soon.'
         this.messageType = 'success'
         this.form = { name: '', email: '', phone: '', subject: '', message: '' }
       } catch (error) {
-        this.message = 'Error sending message. Please try again.'
+        this.message = error.message || 'Error sending message. Please try again.'
         this.messageType = 'error'
         console.error('Contact form error:', error)
       } finally {
