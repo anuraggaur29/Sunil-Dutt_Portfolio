@@ -6,7 +6,7 @@
         <iframe 
           width="100%" 
           height="600" 
-          src="https://www.youtube.com/embed/h2-f5CmNQSI?autoplay=1&mute=1&loop=1&playlist=h2-f5CmNQSI&controls=0&rel=0" 
+          :src="heroVideoSrc" 
           title="Secure your life with LIC! - Animated Video" 
           frameborder="0" 
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
@@ -14,6 +14,9 @@
           allowfullscreen>
         </iframe>
       </div>
+      <button class="video-control-btn" @click="toggleMute" :title="isMuted ? 'Unmute Video' : 'Mute Video'">
+        {{ isMuted ? '🔇 Unmute' : '🔊 Mute' }}
+      </button>
       <div class="video-overlay">
         <div class="container">
           <div class="hero-content">
@@ -184,17 +187,25 @@ export default {
   },
   data() {
     return {
-      whatsappPhone: import.meta.env.VITE_AGENT_WHATSAPP
+      whatsappPhone: import.meta.env.VITE_AGENT_WHATSAPP,
+      isMuted: true
     }
   },
   computed: {
     whatsappLink() {
       return `https://wa.me/${this.whatsappPhone}?text=Hi%20Sunil%20Dutt%2C%20I%20would%20like%20to%20know%20more%20about%20LIC%20plans`
+    },
+    heroVideoSrc() {
+      const muteParam = this.isMuted ? '&mute=1' : '';
+      return `https://www.youtube.com/embed/h2-f5CmNQSI?autoplay=1${muteParam}&loop=1&playlist=h2-f5CmNQSI&controls=0&rel=0`;
     }
   },
   methods: {
     scrollToQuote() {
       this.$refs.quoteSection?.scrollIntoView({ behavior: 'smooth' })
+    },
+    toggleMute() {
+      this.isMuted = !this.isMuted;
     }
   }
 }
@@ -257,6 +268,34 @@ export default {
   font-size: 1.5rem;
   margin-bottom: 2rem;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+/* Video Control Button */
+.video-control-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 20;
+  padding: 10px 15px;
+  background: rgba(255, 107, 53, 0.9);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.video-control-btn:hover {
+  background: rgba(255, 107, 53, 1);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.video-control-btn:active {
+  transform: translateY(0);
 }
 
 /* Education Video Section */
@@ -489,6 +528,13 @@ export default {
 
   .video-overlay .tagline {
     font-size: 1rem;
+  }
+
+  .video-control-btn {
+    top: 10px;
+    right: 10px;
+    padding: 8px 12px;
+    font-size: 0.8rem;
   }
 
   .hero .container {
