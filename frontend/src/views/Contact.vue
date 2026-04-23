@@ -165,7 +165,8 @@ export default {
       messageType: 'success',
       agentPhone: import.meta.env.VITE_AGENT_PHONE,
       agentEmail: import.meta.env.VITE_AGENT_EMAIL,
-      agentAddress: import.meta.env.VITE_AGENT_ADDRESS
+      agentAddress: import.meta.env.VITE_AGENT_ADDRESS,
+      agentWhatsApp: import.meta.env.VITE_AGENT_WHATSAPP
     }
   },
   computed: {
