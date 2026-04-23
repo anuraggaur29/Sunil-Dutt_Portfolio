@@ -1,0 +1,48 @@
+# Render Deployment Configuration
+# This file enables automatic deployment of the backend service on Render.com
+
+services:
+  - type: web
+    name: sunil-dutt-lic-backend
+    env: node
+    plan: free
+    region: singapore
+    
+    # Build Configuration
+    buildCommand: cd backend && npm install
+    startCommand: cd backend && node src/server.js
+    
+    # Environment Variables
+    envVars:
+      - key: PORT
+        value: 5000
+      - key: NODE_ENV
+        value: production
+      
+      # Turso Database Configuration
+      - key: TURSO_CONNECTION_URL
+        value: libsql://sunil-dutt-lic-anuraggaur29.aws-ap-south-1.turso.io
+      - key: TURSO_AUTH_TOKEN
+        sync: false  # Must be set manually in Render dashboard
+      
+      # Agent Information
+      - key: AGENT_NAME
+        value: Sunil Dutt
+      - key: AGENT_PHONE
+        value: +91 9416662922
+      - key: AGENT_EMAIL
+        value: dutt2785@gmail.com
+      - key: AGENT_WHATSAPP
+        value: 919416662922
+      - key: AGENT_ADDRESS
+        value: Jind, Haryana, India 126102
+      
+      # JWT Configuration
+      - key: JWT_SECRET
+        sync: false  # Must be set manually in Render dashboard
+      - key: JWT_EXPIRE
+        value: 7d
+      
+      # CORS Configuration
+      - key: CORS_ORIGIN
+        value: https://sunildutt.netlify.app
