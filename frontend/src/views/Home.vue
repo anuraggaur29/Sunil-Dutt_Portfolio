@@ -197,7 +197,7 @@ export default {
     },
     heroVideoSrc() {
       const muteParam = this.isMuted ? '&mute=1' : '';
-      return `https://www.youtube.com/embed/h2-f5CmNQSI?autoplay=1${muteParam}&loop=1&playlist=h2-f5CmNQSI&controls=0&rel=0`;
+      return `https://www.youtube.com/embed/h2-f5CmNQSI?autoplay=1${muteParam}&loop=1&playlist=h2-f5CmNQSI&start=20&controls=0&rel=0`;
     }
   },
   methods: {
