@@ -163,15 +163,15 @@ export default {
       loading: false,
       message: '',
       messageType: 'success',
-      agentPhone: import.meta.env.VITE_AGENT_PHONE,
-      agentEmail: import.meta.env.VITE_AGENT_EMAIL,
-      agentAddress: import.meta.env.VITE_AGENT_ADDRESS,
-      agentWhatsApp: import.meta.env.VITE_AGENT_WHATSAPP
+      agentPhone: import.meta.env.VITE_AGENT_PHONE || '+91 9416662922',
+      agentEmail: import.meta.env.VITE_AGENT_EMAIL || 'dutt2785@gmail.com',
+      agentAddress: import.meta.env.VITE_AGENT_ADDRESS || 'Jind, Haryana, India 126102',
+      agentWhatsApp: import.meta.env.VITE_AGENT_WHATSAPP || '919416662922'
     }
   },
   computed: {
     whatsappLink() {
-      return `https://wa.me/${import.meta.env.VITE_AGENT_WHATSAPP}?text=Hi%20Sunil%20Dutt`
+      return `https://wa.me/${import.meta.env.VITE_AGENT_WHATSAPP || '919416662922'}?text=Hi%20Sunil%20Dutt`
     }
   },
   methods: {

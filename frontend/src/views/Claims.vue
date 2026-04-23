@@ -200,14 +200,14 @@
 export default {
   data() {
     return {
-      agentPhone: import.meta.env.VITE_AGENT_PHONE,
-      agentEmail: import.meta.env.VITE_AGENT_EMAIL,
-      agentAddress: import.meta.env.VITE_AGENT_ADDRESS
+      agentPhone: import.meta.env.VITE_AGENT_PHONE || '+91 9416662922',
+      agentEmail: import.meta.env.VITE_AGENT_EMAIL || 'dutt2785@gmail.com',
+      agentAddress: import.meta.env.VITE_AGENT_ADDRESS || 'Jind, Haryana, India 126102'
     }
   },
   computed: {
     whatsappLink() {
-      return `https://wa.me/${import.meta.env.VITE_AGENT_WHATSAPP}?text=I%20need%20help%20with%20my%20policy`
+      return `https://wa.me/${import.meta.env.VITE_AGENT_WHATSAPP || '919416662922'}?text=I%20need%20help%20with%20my%20policy`
     }
   }
 }

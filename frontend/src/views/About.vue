@@ -81,15 +81,15 @@ export default {
   },
   data() {
     return {
-      agentPhone: import.meta.env.VITE_AGENT_PHONE,
-      agentEmail: import.meta.env.VITE_AGENT_EMAIL,
-      agentWhatsApp: import.meta.env.VITE_AGENT_WHATSAPP,
-      agentAddress: import.meta.env.VITE_AGENT_ADDRESS
+      agentPhone: import.meta.env.VITE_AGENT_PHONE || '+91 9416662922',
+      agentEmail: import.meta.env.VITE_AGENT_EMAIL || 'dutt2785@gmail.com',
+      agentWhatsApp: import.meta.env.VITE_AGENT_WHATSAPP || '919416662922',
+      agentAddress: import.meta.env.VITE_AGENT_ADDRESS || 'Jind, Haryana, India 126102'
     }
   },
   computed: {
     whatsappLink() {
-      return `https://wa.me/${import.meta.env.VITE_AGENT_WHATSAPP}?text=Hi%20Sunil%20Dutt`
+      return `https://wa.me/${import.meta.env.VITE_AGENT_WHATSAPP || '919416662922'}?text=Hi%20Sunil%20Dutt`
     }
   }
 }
