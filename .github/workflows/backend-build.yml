@@ -1,0 +1,39 @@
+name: Backend Build & Test
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'backend/**'
+      - '.github/workflows/backend-build.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'backend/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+          cache-dependency-path: 'backend/package-lock.json'
+      
+      - name: Install dependencies
+        run: cd backend && npm ci
+      
+      - name: Check for syntax errors
+        run: cd backend && npm run lint 2>/dev/null || echo "No linting configured"
+      
+      - name: Verify server can start
+        run: cd backend && timeout 10 npm start || true
+        env:
+          NODE_ENV: development

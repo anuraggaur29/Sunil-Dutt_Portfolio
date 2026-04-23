@@ -1,0 +1,58 @@
+# Netlify Configuration for Sunil Dutt - LIC Agent Website
+
+[build]
+command = "cd frontend && npm install && npm run build"
+publish = "frontend/dist"
+base = "frontend"
+
+[dev]
+command = "npm run dev"
+port = 3000
+
+# Redirect all non-matching routes to index.html for Vue Router SPA
+[[redirects]]
+from = "/*"
+to = "/index.html"
+status = 200
+
+# Environment variables
+[context.production.environment]
+VITE_API_BASE_URL = "https://lic-agent-api.herokuapp.com/api"
+VITE_AGENT_NAME = "Sunil Dutt"
+VITE_AGENT_PHONE = "+91 9416662922"
+VITE_AGENT_EMAIL = "dutt2785@gmail.com"
+VITE_AGENT_WHATSAPP = "919416662922"
+VITE_AGENT_ADDRESS = "Jind, Haryana, India 126102"
+VITE_APP_NAME = "Sunil Dutt - LIC Agent"
+VITE_APP_URL = "https://sunildutt-lic-agent.netlify.app"
+
+[context.deploy-preview.environment]
+VITE_API_BASE_URL = "https://lic-agent-api-staging.herokuapp.com/api"
+VITE_AGENT_NAME = "Sunil Dutt"
+VITE_AGENT_PHONE = "+91 9416662922"
+VITE_AGENT_EMAIL = "dutt2785@gmail.com"
+VITE_AGENT_WHATSAPP = "919416662922"
+VITE_AGENT_ADDRESS = "Jind, Haryana, India 126102"
+VITE_APP_NAME = "Sunil Dutt - LIC Agent"
+VITE_APP_URL = "https://deploy-preview-lic-agent.netlify.app"
+
+# Cache control
+[[headers]]
+for = "/index.html"
+[headers.values]
+Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+for = "/assets/*"
+[headers.values]
+Cache-Control = "public, max-age=31536000, immutable"
+
+# Security headers
+[[headers]]
+for = "/*"
+[headers.values]
+X-Frame-Options = "DENY"
+X-Content-Type-Options = "nosniff"
+X-XSS-Protection = "1; mode=block"
+Referrer-Policy = "strict-origin-when-cross-origin"
+Permissions-Policy = "geolocation=(), microphone=(), camera=()"

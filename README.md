@@ -217,27 +217,52 @@ Edit `.env` files with agent details:
 - Integration tests
 - E2E tests (Cypress/Playwright)
 
-## Deployment Options
+## Deployment Guide
 
-### Option 1: Heroku
+### Quick Deployment (Recommended: Netlify + External Backend)
+
+#### Frontend - Netlify Deployment (Free Tier Available)
+1. Push code to GitHub
+2. Visit [netlify.com](https://netlify.com) and connect your GitHub repository
+3. Netlify automatically reads `netlify.toml` and configures the build
+4. Set environment variables in Netlify UI (Site Settings → Build & Deploy → Environment)
+5. Deploy is automatic on every push to main branch
+
+**Build Command**: `cd frontend && npm install && npm run build`  
+**Publish Directory**: `frontend/dist`
+
+#### Backend - Deploy Separately
+
+**Option A: Heroku (Easiest for beginners)**
 ```bash
-# Backend deployment
 heroku create your-app-name
+heroku config:set CORS_ORIGIN=https://your-domain.netlify.app
 git push heroku main
 ```
 
-### Option 2: AWS
-- EC2 for backend
-- S3 + CloudFront for frontend
-- RDS for PostgreSQL upgrade
+**Option B: Railway (Modern alternative)**
+- Connect GitHub on [railway.app](https://railway.app)
+- Set backend as root directory
+- Auto-deploys with each commit
 
-### Option 3: DigitalOcean
-- App Platform for both
-- Managed Database
+**Option C: Render.com**
+- Free tier with limitations
+- Automatic deployments from GitHub
+- Environment variables via dashboard
 
-### Option 4: Netlify + Vercel
-- Frontend on Netlify
-- Backend serverless functions
+### Complete Deployment Checklist
+- [x] Netlify configuration file created (`netlify.toml`)
+- [x] Environment variables templates provided (`.env.example` files)
+- [ ] Backend hosting selected and configured
+- [ ] Environment variables set in hosting platform
+- [ ] CORS origin configured to match frontend URL
+- [ ] Database initialized on backend server
+- [ ] SSL certificates enabled
+- [ ] Custom domain configured
+- [ ] DNS records updated
+
+### Full Deployment Instructions
+See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed step-by-step instructions.
 
 ## Next Steps
 
