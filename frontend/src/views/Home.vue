@@ -1,7 +1,55 @@
 <template>
   <div class="home">
+    <!-- Hero Video Section -->
+    <section class="hero-video">
+      <div class="video-container">
+        <iframe 
+          width="100%" 
+          height="600" 
+          src="https://www.youtube.com/embed/h2-f5CmNQSI?autoplay=1&mute=1&loop=1&playlist=h2-f5CmNQSI&controls=0&rel=0" 
+          title="Secure your life with LIC! - Animated Video" 
+          frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          referrerpolicy="strict-origin-when-cross-origin" 
+          allowfullscreen>
+        </iframe>
+      </div>
+      <div class="video-overlay">
+        <div class="container">
+          <div class="hero-content">
+            <h1>{{ $t('home.hero.title') }}</h1>
+            <p class="tagline">{{ $t('home.hero.subtitle') }}</p>
+            <div class="hero-cta">
+              <button class="btn btn-primary" @click="scrollToQuote">{{ $t('home.hero.cta1') }}</button>
+              <a :href="whatsappLink" class="btn btn-secondary" target="_blank">{{ $t('header.whatsapp') }} Chat</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education Video Section -->
+    <section class="education-video">
+      <div class="container">
+        <h2>Learn About LIC ULIPs</h2>
+        <p class="subtitle">Watch this comprehensive guide (In Hindi)</p>
+        <div class="video-wrapper">
+          <iframe 
+            width="100%" 
+            height="400" 
+            src="https://www.youtube.com/embed/2bmoUHwKMHY?si=XwWT6-56qyp2nksJ" 
+            title="LIC's ULIPs Customer Education Video (Hindi)" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            referrerpolicy="strict-origin-when-cross-origin" 
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+    </section>
+
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" style="display: none;">
       <div class="container">
         <div class="hero-content">
           <h1>{{ $t('home.hero.title') }}</h1>
@@ -153,6 +201,97 @@ export default {
 </script>
 
 <style scoped>
+/* Hero Video Section */
+.hero-video {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  overflow: hidden;
+  margin-bottom: 3rem;
+}
+
+.video-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.video-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 31, 63, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.video-overlay .container {
+  text-align: center;
+}
+
+.video-overlay .hero-content {
+  color: white;
+}
+
+.video-overlay h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  line-height: 1.2;
+}
+
+.video-overlay .tagline {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+/* Education Video Section */
+.education-video {
+  padding: 4rem 0;
+  background: #f9f9f9;
+}
+
+.education-video h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #001f3f;
+  margin-bottom: 0.5rem;
+}
+
+.education-video .subtitle {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+.video-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  aspect-ratio: 16 / 9;
+}
+
+.video-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
 .hero {
   background: linear-gradient(135deg, #001f3f 0%, #0074D9 100%);
   color: white;
@@ -340,6 +479,18 @@ export default {
 }
 
 @media (max-width: 768px) {
+  .hero-video {
+    height: 350px;
+  }
+
+  .video-overlay h1 {
+    font-size: 1.8rem;
+  }
+
+  .video-overlay .tagline {
+    font-size: 1rem;
+  }
+
   .hero .container {
     grid-template-columns: 1fr;
   }
