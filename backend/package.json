@@ -1,0 +1,33 @@
+{
+  "name": "lic-agent-website-backend",
+  "version": "1.0.0",
+  "description": "Backend API for Sunil Dutt LIC Agent Website",
+  "main": "src/server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "lic",
+    "insurance",
+    "api",
+    "nodejs"
+  ],
+  "author": "Sunil Dutt",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "sqlite3": "^5.1.6",
+    "sqlite": "^5.0.1",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.0",
+    "body-parser": "^1.20.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
