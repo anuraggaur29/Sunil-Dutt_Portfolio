@@ -537,6 +537,13 @@ export default {
     font-size: 0.8rem;
   }
 
+  .values-grid,
+  .plans-grid,
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
   .hero .container {
     grid-template-columns: 1fr;
   }
@@ -552,6 +559,92 @@ export default {
   .btn {
     width: 100%;
     text-align: center;
+  }
+
+  .education-video h2 {
+    font-size: 1.8rem;
+  }
+
+  .education-video .subtitle {
+    font-size: 0.95rem;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+  .hero-video {
+    height: 250px;
+  }
+
+  .video-overlay h1 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .video-overlay .tagline {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+
+  .video-control-btn {
+    top: 8px;
+    right: 8px;
+    padding: 6px 10px;
+    font-size: 0.7rem;
+  }
+
+  .hero-cta {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .btn {
+    padding: 0.7rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  .values-grid,
+  .plans-grid,
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .value-card,
+  .plan-card,
+  .testimonial {
+    padding: 1.5rem 1rem;
+  }
+
+  .value-card .icon {
+    font-size: 2.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .values h2,
+  .featured-plans h2,
+  .calculator-cta h2,
+  .quote-section h2,
+  .testimonials h2,
+  .education-video h2 {
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .education-video .subtitle {
+    font-size: 0.85rem;
+  }
+
+  .video-wrapper {
+    max-width: 100%;
+  }
+
+  .calculator-cta {
+    padding: 2rem 1rem;
+  }
+
+  .quote-section {
+    padding: 2rem 1rem;
   }
 }
 </style>

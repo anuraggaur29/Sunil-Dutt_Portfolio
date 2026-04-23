@@ -229,9 +229,84 @@ footer {
     text-align: center;
   }
 
+  .logo h1 {
+    font-size: 1.5rem;
+  }
+
+  .logo p {
+    font-size: 0.85rem;
+  }
+
   .nav-menu {
     width: 100%;
     justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .nav-menu a {
+    font-size: 0.9rem;
+    padding: 0.5rem 0.75rem;
+  }
+
+  .footer-content {
+    gap: 1rem;
+  }
+
+  .footer-section h3 {
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .footer-section p,
+  .footer-section ul li {
+    font-size: 0.9rem;
+    margin-bottom: 0.3rem;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 10px;
+  }
+
+  .logo h1 {
+    font-size: 1.2rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .logo p {
+    font-size: 0.75rem;
+  }
+
+  .nav-menu {
+    gap: 0.25rem;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .nav-menu a {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.5rem;
+  }
+
+  header {
+    padding: 0.75rem 0;
+  }
+
+  footer {
+    padding: 1.5rem 0 0.75rem;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .footer-bottom {
+    padding-top: 0.75rem;
+    font-size: 0.8rem;
   }
 }
 </style>

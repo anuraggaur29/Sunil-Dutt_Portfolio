@@ -461,12 +461,95 @@ textarea:focus {
     font-size: 2rem;
   }
 
+  .form-group {
+    margin-bottom: 1.2rem;
+  }
+
   .form-actions {
     flex-direction: column;
+    gap: 0.75rem;
   }
 
   .btn {
     flex: 1 !important;
+    padding: 0.7rem 1rem;
+  }
+
+  .contact-info h2 {
+    font-size: 1.6rem;
+  }
+
+  .info-item h3 {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.4rem;
+  }
+
+  .contact-info h2,
+  .quote-section h2,
+  .faq h2 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+
+  .info-item {
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .info-item h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .info-item p {
+    font-size: 0.9rem;
+  }
+
+  .form-group {
+    margin-bottom: 1rem;
+  }
+
+  .form-group label {
+    font-size: 0.9rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    font-size: 16px;
+    padding: 0.6rem;
+  }
+
+  textarea {
+    min-height: 100px;
+  }
+
+  .form-actions {
+    gap: 0.5rem;
+  }
+
+  .btn {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .faq-item {
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .faq-item h3 {
+    font-size: 0.95rem;
+  }
+
+  .faq-item p {
+    font-size: 0.85rem;
   }
 }
 </style>

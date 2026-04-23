@@ -450,5 +450,76 @@ input[type="range"] {
   h1 {
     font-size: 2rem;
   }
+
+  .form-group {
+    margin-bottom: 1.2rem;
+  }
+
+  input,
+  select,
+  button {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.4rem;
+  }
+
+  .subtitle {
+    font-size: 0.95rem;
+  }
+
+  .form-group {
+    margin-bottom: 1rem;
+  }
+
+  .form-group label {
+    font-size: 0.9rem;
+    margin-bottom: 0.4rem;
+  }
+
+  input,
+  select {
+    width: 100%;
+    padding: 0.6rem;
+    font-size: 16px;
+    margin-bottom: 0.5rem;
+  }
+
+  button {
+    width: 100%;
+    padding: 0.7rem 1rem;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+  }
+
+  .results-section {
+    padding: 1.5rem 1rem;
+  }
+
+  .results-section h2 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+
+  .result-item {
+    padding: 1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .result-label {
+    font-size: 0.9rem;
+  }
+
+  .result-value {
+    font-size: 1.2rem;
+  }
+
+  .tax-benefits {
+    padding: 1rem;
+    font-size: 0.9rem;
+  }
 }
 </style>
